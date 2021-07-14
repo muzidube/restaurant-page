@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/index.js',
-    initial: './src/initial.js',
+    index: './src/js/index.js',
+    initial: './src/js/initial.js',
   },
   plugins: [
 
@@ -40,6 +40,13 @@ module.exports = {
       {
 
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+
+        type: 'asset/resource',
+
+      },
+      {
+
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
 
         type: 'asset/resource',
 
