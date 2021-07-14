@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     index: './src/index.js',
-    inital: './src/initial.js',
+    initial: './src/initial.js',
   },
   plugins: [
 
