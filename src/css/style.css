@@ -79,7 +79,6 @@ body {
 }
 
 .restSymbol {
-    /*background-image: url('../images/enso.png');*/
     max-height: 100%;
     max-width: 100%;
     margin: 0 0 20px;
@@ -239,13 +238,94 @@ body {
 
  /* EVERYTHING ABOVE IS FOR THE HOME INFO */
 
- /* EVERYTHING BELOW IS FOR THE HOME INFO */
+ /* EVERYTHING BELOW IS FOR THE CONTACT INFO */
 
  .contactDiv {
-    margin: 3rem auto 0 auto;
-    display: grid
+    margin-top: 3rem;
 }
 
+.contactColumns {
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (max-width: 768px) {
+    .contactColumns {
+        grid-template-columns: 1fr;
+        max-width: 90vw;
+    }
+ }
+
+.contactColumn {
+    justify-self: center;
+    background: #cccccc;
+    font-family: 'Zen-Loop';
+}
+
+.mapDiv {
+    max-width: 400px;
+}
+
+.detailsDiv {
+    max-width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+    .contactColumn {
+        width: 100%;
+    }
+ }
+
+.contactTitles {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.mapImg {
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 0 20px;
+    height: 400px;
+    width: 400px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .mapImg {
+        width: 100%;
+    }
+ }
+
+ .detailsContainer {
+     height: 400px;
+ }
+
+.detailItem {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    padding: 5px 0;
+
+}
+
+.detailInfo {
+    flex: 1;
+    text-align: left;
+}
+
+.detailName {
+    margin: 0;
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.detailDesc {
+    padding: 2px 0;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
 
 
   /* EVERYTHING ABOVE IS FOR THE HOME INFO */

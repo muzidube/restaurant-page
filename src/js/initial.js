@@ -1,18 +1,15 @@
 import symbol from '../images/enso.png';
+import location from '../images/location2.png';
 
 const createHTML = (function() {
     const body = document.querySelector('body')
     const allContent = document.createElement('div')
     const navBar = document.createElement('nav');
-    const homeBtn = document.createElement('p');
-
-    const menuBtn = document.createElement('p');
-
+        const homeBtn = document.createElement('p');
+        const menuBtn = document.createElement('p');
     const innerMenu = document.createElement('section');
-
     const sushiMenu = document.createElement('div'); //column is-6
     const sushiDishes = document.createElement('h1'); //title
-
     const teppanyakiMenu = document.createElement('div'); //column is-6
     const teppanyakiDishes = document.createElement('h1'); //title
            
@@ -70,6 +67,41 @@ const createHTML = (function() {
     const teppanyakiDish4 = dishCreator(8, 'Lamb Fillet', '£20.00', 'Garlic chilli' );
     const teppanyakiDish5 = dishCreator(9, 'Beef Fillet', '£22.00', 'Asparagus and shitake mushrooms' );
 
+    function detailCreator(name, type, description) {
+
+        
+        const detailContainer = document.createElement('article');
+        detailContainer.setAttribute('id', 'detailItem');
+        detailContainer.classList.add('detailItem', 'media', type);
+    
+        const detailInfo = document.createElement('div');
+        detailInfo.setAttribute('id', 'detailInfo');
+        detailInfo.classList.add('detailInfo');
+
+        const detailName = document.createElement('h3');
+        detailName.setAttribute('id', 'detailName');
+        detailName.setAttribute('class', 'detailName');
+
+        const detailDesc = document.createElement('p');
+        detailDesc.setAttribute('id', 'detailDesc');
+        detailDesc.setAttribute('class', 'detailDesc');
+
+        detailName.innerText = name;
+        detailDesc.innerText = description
+        detailInfo.appendChild(detailName);
+        detailInfo.appendChild(detailDesc);
+        
+        detailContainer.appendChild(detailInfo);
+
+        return detailContainer
+            
+    }
+
+    const address = detailCreator('Address', 'address', '278 Kings Road, London, SW3 5AW');
+    const telephone = detailCreator('Telephone', 'telephone', '02011 1111 1111');
+    const email = detailCreator('Email', 'email', 'thisLinkWillTakeYouToMyGithub@havealook.com');
+    const hours = detailCreator('Opening Hours', 'hours', '4pm - 10pm Every Day');
+
     const contactBtn = document.createElement('p');
     const header = document.createElement('header');
     const headerContainer = document.createElement('div');
@@ -82,6 +114,14 @@ const createHTML = (function() {
     const infoText = document.createElement('p');
     const menuDiv = document.createElement('div');
     const contactDiv = document.createElement('div');
+        const innerContact = document.createElement('section');
+            const mapDiv = document.createElement('div'); //column is-6
+                const mapTitle = document.createElement('h1');
+                const mapContainer = document.createElement('div'); //column is-6
+                const mapImg = document.createElement('img'); //column is-6
+            const detailsDiv = document.createElement('div'); //column is-6
+                const detailsContainer = document.createElement('div');
+                    const detailsTitle = document.createElement('h1'); //column is-6
     
     allContent.setAttribute('id', 'content');
     allContent.setAttribute('class', 'content');
@@ -137,6 +177,23 @@ const createHTML = (function() {
 
     contactDiv.setAttribute('id', 'contactDiv');
     contactDiv.setAttribute('class', 'contactDiv');
+        innerContact.setAttribute('id', 'contactColumns')
+        innerContact.setAttribute('class', 'contactColumns')
+            mapDiv.setAttribute('id', 'mapDiv');
+            mapDiv.classList.add('contactColumn', 'mapDiv');
+                mapTitle.setAttribute('id', 'mapTitle');
+                mapTitle.classList.add('mapTitle', 'contactTitles');
+                mapContainer.setAttribute('id', 'mapContainer');
+                mapContainer.classList.add('mapContainer');
+                mapImg.setAttribute('id', 'mapImg');
+                mapImg.classList.add('mapImg');
+                mapImg.setAttribute('src', location);
+            detailsDiv.setAttribute('id', 'detailsDiv');
+            detailsDiv.classList.add('contactColumn', 'detailsDiv');
+                detailsContainer.setAttribute('id', 'detailsContainer');
+                detailsContainer.classList.add('detailsContainer');
+                    detailsTitle.setAttribute('id', 'detailsTitle');
+                    detailsTitle.classList.add('detailsTitle', 'contactTitles');
 
     return {
         body,
@@ -145,6 +202,7 @@ const createHTML = (function() {
         homeBtn,
 
         menuBtn,
+        menuDiv,
         innerMenu,       
         sushiMenu,
         sushiDishes,
@@ -162,6 +220,20 @@ const createHTML = (function() {
         teppanyakiDish5,
 
         contactBtn,
+        contactDiv,
+        innerContact,
+        mapDiv,
+        mapTitle,
+        mapContainer,
+        mapImg,
+        detailsDiv,
+        detailsTitle,
+        detailsContainer,
+        address,
+        telephone,
+        email,
+        hours,
+
         header,
         headerContainer,
         headerContent,
@@ -171,8 +243,6 @@ const createHTML = (function() {
         imageDiv,
         restInfo,
         infoText,
-        menuDiv,
-        contactDiv,
     }
 
 })();
@@ -185,6 +255,7 @@ const contentHTML =(function() {
         homeBtn,
 
         menuBtn,
+        menuDiv,
         innerMenu,       
         sushiMenu,
         sushiDishes,
@@ -202,6 +273,20 @@ const contentHTML =(function() {
         teppanyakiDish5,
 
         contactBtn,
+        contactDiv,
+        innerContact,
+        mapDiv,
+        mapTitle,
+        mapContainer,
+        mapImg,
+        detailsDiv,
+        detailsTitle,
+        detailsContainer,
+        address,
+        telephone,
+        email,
+        hours,
+
         header,
         headerContainer,
         headerContent,
@@ -211,8 +296,6 @@ const contentHTML =(function() {
         imageDiv,
         restInfo,
         infoText,
-        menuDiv,
-        contactDiv,
     } = createHTML;
 
     restName.innerText = 'Hagane Teppanyaki';
@@ -223,6 +306,9 @@ const contentHTML =(function() {
 
     sushiDishes.innerText = 'Signature Sushi';
     teppanyakiDishes.innerText = 'Teppanyaki';
+
+    mapTitle.innerText = 'Find Us';
+    detailsTitle.innerText = 'Info';
     
     infoText.innerText = 'Hagane Teppanyaki is a Japanese food haven, in a relaxing setting. Offering authentic Japanese dining and seamless hospitality, all presented in an atmosphere of unpretentious enjoyment.'
 
@@ -236,6 +322,7 @@ const DOMappender =(function() {
         homeBtn,
 
         menuBtn,
+        menuDiv,
         innerMenu,       
         sushiMenu,
         sushiDishes,
@@ -253,6 +340,20 @@ const DOMappender =(function() {
         teppanyakiDish5,
 
         contactBtn,
+        contactDiv,
+        innerContact,
+        mapDiv,
+        mapTitle,
+        mapContainer,
+        mapImg,
+        detailsDiv,
+        detailsTitle,
+        detailsContainer,
+        address,
+        telephone,
+        email,
+        hours,
+
         header,
         headerContainer,
         headerContent,
@@ -262,8 +363,6 @@ const DOMappender =(function() {
         imageDiv,
         restInfo,
         infoText,
-        menuDiv,
-        contactDiv,
     } = createHTML;
 
     body.appendChild(allContent);
@@ -288,6 +387,20 @@ const DOMappender =(function() {
             teppanyakiMenu.appendChild(teppanyakiDish3);
             teppanyakiMenu.appendChild(teppanyakiDish4);
             teppanyakiMenu.appendChild(teppanyakiDish5);
+
+    contactDiv.appendChild(innerContact);
+        innerContact.appendChild(mapDiv);
+            mapDiv.appendChild(mapTitle);
+            mapDiv.appendChild(mapContainer);
+                mapContainer.appendChild(mapImg);
+        innerContact.appendChild(detailsDiv);
+            detailsDiv.appendChild(detailsContainer);
+                detailsContainer.appendChild(detailsTitle);
+                detailsContainer.appendChild(address);
+                detailsContainer.appendChild(telephone);
+                detailsContainer.appendChild(email);
+                detailsContainer.appendChild(hours);
+
 
 
 
