@@ -1,9 +1,9 @@
 @font-face {
 
-    font-family: 'Zen Loop', cursive;
+    font-family: 'Zen-Loop';
   
     src: url('../components/fonts/ZenLoop-Regular.ttf') format('truetype');
-  
+   
     font-weight: 600;
   
     font-style: normal;
@@ -16,7 +16,7 @@
   
     src: url('../components/fonts/Branda-yolq.ttf') format('truetype');
   
-    font-weight: 600;
+    font-weight: 1000;
   
     font-style: normal;
   
@@ -40,18 +40,64 @@ body {
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: 'Zen Loop';
+    font-family: 'Zen-Loop';
     font-weight: normal;
     vertical-align: baseline;
+    font-size: 100%;
     line-height: 1;
     background-image: url('../images/black-splatters.svg');
     background-color: #cccccc;
     background-size: 1000px;
 }
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 70vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../images/sunset.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+}
+
+.headerContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+
+.headerContent {
+    margin: 0 auto;
+    max-width: 960px;
+    position: relative;
+    text-align: center;
+}
+
+.restSymbol {
+    /*background-image: url('../images/enso.png');*/
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 0 20px;
+    width: 120px;
+    filter: saturate(500%) contrast(800%) brightness(500%) 
+    invert(100%) sepia(50%) hue-rotate(120deg);
+
+}
+
+.restName {
+    font-family: 'Branda';
+    text-align: center;
+    font-size: 4rem;
+}
 
 .navBar {
     display: flex;
-    margin: auto;
+    margin: 2rem auto auto auto;
     justify-content: center;
     align-content: center;
 }
@@ -59,7 +105,10 @@ body {
 .navBtns {
     margin: 0 3rem;
     background: #cccccc;
+    font-size: 1.5rem;
 }
+
+/* EVERYTHING BELOW IS FOR THE MENU*/
 
 .menuDiv {
     margin-top: 3rem;
@@ -82,6 +131,7 @@ body {
     width: 50%;
     justify-self: center;
     background: #cccccc;
+    font-family: 'Zen-Loop';
 }
 
 @media screen and (max-width: 768px) {
@@ -92,7 +142,7 @@ body {
 
 .titleDishes {
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 2.5rem;
 }
 
 .menuItem {
@@ -111,7 +161,7 @@ body {
 .dishName {
     margin: 0;
     display: inline-block;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
 }
 
 .dishPrice {
@@ -120,7 +170,7 @@ body {
 }
 .dishDesc {
     padding: 20px 0;
-    font-size: 100%;
+    font-size: 1.2rem;
     line-height: 1.4;
 }
 
@@ -158,3 +208,44 @@ body {
 .is-right {
     float: right;
 }
+
+/* EVERYTHING ABOVE IS FOR THE MENU */
+
+/* EVERYTHING BELOW IS FOR THE HOME INFO */
+
+.restInfo {
+    margin: 3rem auto 0 auto;
+    display: grid
+}
+
+@media screen and (max-width: 768px) {
+    .restInfo {
+        max-width: 90vw;
+    }
+ }
+
+.infoText {
+    font-size: 1.5rem;
+    width: 75%;
+    background: #cccccc;
+    justify-self: center;
+}
+
+@media screen and (max-width: 768px) {
+    .infoText {
+        width: 100%
+    }
+ }
+
+ /* EVERYTHING ABOVE IS FOR THE HOME INFO */
+
+ /* EVERYTHING BELOW IS FOR THE HOME INFO */
+
+ .contactDiv {
+    margin: 3rem auto 0 auto;
+    display: grid
+}
+
+
+
+  /* EVERYTHING ABOVE IS FOR THE HOME INFO */

@@ -1,3 +1,5 @@
+import symbol from '../images/enso.png';
+
 const createHTML = (function() {
     const body = document.querySelector('body')
     const allContent = document.createElement('div')
@@ -70,7 +72,10 @@ const createHTML = (function() {
 
     const contactBtn = document.createElement('p');
     const header = document.createElement('header');
-    const h1 = document.createElement('h1');
+    const headerContainer = document.createElement('div');
+    const headerContent = document.createElement('div');
+    const restSymbol = document.createElement('img');
+    const restName = document.createElement('p');
     const mainContainer = document.createElement('div');
     const imageDiv = document.createElement('div');
     const restInfo = document.createElement('div');
@@ -95,9 +100,15 @@ const createHTML = (function() {
 
     header.setAttribute('id', 'header');
     header.setAttribute('class', 'header');
-
-    h1.setAttribute('id', 'mainTitle');
-    h1.setAttribute('class', 'mainTitle');
+        headerContainer.setAttribute('id', 'headerContainer');
+        headerContainer.setAttribute('class', 'headerContainer');
+            headerContent.setAttribute('id', 'headerContent');
+            headerContent.setAttribute('class', 'headerContent');
+                restSymbol.setAttribute('id', 'restSymbol');
+                restSymbol.setAttribute('class', 'restSymbol');
+                restSymbol.setAttribute('src', symbol);
+                restName.setAttribute('id', 'restName');
+                restName.setAttribute('class', 'restName');
 
     mainContainer.setAttribute('id', 'mainContainer');
     mainContainer.setAttribute('class', 'mainContainer');
@@ -152,7 +163,10 @@ const createHTML = (function() {
 
         contactBtn,
         header,
-        h1,
+        headerContainer,
+        headerContent,
+        restSymbol,
+        restName,
         mainContainer,
         imageDiv,
         restInfo,
@@ -189,7 +203,10 @@ const contentHTML =(function() {
 
         contactBtn,
         header,
-        h1,
+        headerContainer,
+        headerContent,
+        restSymbol,
+        restName,
         mainContainer,
         imageDiv,
         restInfo,
@@ -198,7 +215,7 @@ const contentHTML =(function() {
         contactDiv,
     } = createHTML;
 
-    h1.innerText = 'Hagane Teppanyaki';
+    restName.innerText = 'Hagane Teppanyaki';
 
     homeBtn.innerText = 'Home';
     menuBtn.innerText = 'Menu';
@@ -206,7 +223,8 @@ const contentHTML =(function() {
 
     sushiDishes.innerText = 'Signature Sushi';
     teppanyakiDishes.innerText = 'Teppanyaki';
-
+    
+    infoText.innerText = 'Hagane Teppanyaki is a Japanese food haven, in a relaxing setting. Offering authentic Japanese dining and seamless hospitality, all presented in an atmosphere of unpretentious enjoyment.'
 
 })();
 
@@ -236,7 +254,10 @@ const DOMappender =(function() {
 
         contactBtn,
         header,
-        h1,
+        headerContainer,
+        headerContent,
+        restSymbol,
+        restName,
         mainContainer,
         imageDiv,
         restInfo,
@@ -252,7 +273,6 @@ const DOMappender =(function() {
     restInfo.appendChild(infoText);
     mainContainer.appendChild(menuDiv);
     mainContainer.appendChild(contactDiv);
-    mainContainer.appendChild(menuDiv);
     
     menuDiv.appendChild(innerMenu);
         innerMenu.appendChild(sushiMenu);
@@ -272,7 +292,11 @@ const DOMappender =(function() {
 
 
 
-    header.appendChild(h1);
+    header.appendChild(headerContainer);
+    headerContainer.appendChild(headerContent);
+    headerContent.appendChild(restSymbol);
+    headerContent.appendChild(restName);
+
 
     navBar.appendChild(homeBtn);
     navBar.appendChild(menuBtn);
