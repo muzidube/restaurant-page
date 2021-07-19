@@ -1,8 +1,8 @@
 
   @font-face {
     font-family: 'Branda';
-    src: url("../components/fonts/branda-yolq-webfont.woff2") format("woff2"),
-         url("../components/fonts/branda-yolq-webfont.woff") format("woff");
+    src: url("../components/fonts/branda.woff2") format("woff2"),
+         url("../components/fonts/branda.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 
@@ -13,8 +13,8 @@
 
 @font-face {
     font-family: 'Zen-Loop';
-    src: url("../components/fonts/zenloop-regular-webfont.woff2") format("woff2"),
-         url("../components/fonts/zenloop-regular-webfont.woff") format("woff");
+    src: url("../components/fonts/zenloop.woff2") format("woff2"),
+         url("../components/fonts/zenloop.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 
@@ -143,11 +143,11 @@ body {
 .menuDiv {
     display: none;
     margin-top: 3rem;
-    animation: fadeIn 1.5s;
-    -webkit-animation: fadeIn 1.5s;
-    -moz-animation: fadeIn 1.5s;
-    -o-animation: fadeIn 1.5s;
-    -ms-animation: fadeIn 1.5s;
+    animation: fadeIn 1s;
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -o-animation: fadeIn 1s;
+    -ms-animation: fadeIn 1s;
 }
 
 .menuColumns {
@@ -244,11 +244,11 @@ body {
 .restInfo {
     display: none;
     margin: 3rem auto 0 auto;
-    animation: fadeIn 1.5s;
-    -webkit-animation: fadeIn 1.5s;
-    -moz-animation: fadeIn 1.5s;
-    -o-animation: fadeIn 1.5s;
-    -ms-animation: fadeIn 1.5s;
+    animation: fadeIn 1s;
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -o-animation: fadeIn 1s;
+    -ms-animation: fadeIn 1s;
 }
 
 @media screen and (max-width: 768px) {
@@ -277,11 +277,11 @@ body {
  .contactDiv {
     display: none;
     margin-top: 3rem;
-    animation: fadeIn 1.5s;
-    -webkit-animation: fadeIn 1.5s;
-    -moz-animation: fadeIn 1.5s;
-    -o-animation: fadeIn 1.5s;
-    -ms-animation: fadeIn 1.5s;
+    animation: fadeIn 1s;
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -o-animation: fadeIn 1s;
+    -ms-animation: fadeIn 1s;
 }
 
 .contactColumns {

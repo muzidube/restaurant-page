@@ -2,10 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     index: './src/js/index.js',
-    initial: './src/js/initial.js',
   },
   plugins: [
 
@@ -21,11 +20,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
-  devServer: {
-
-    contentBase: './dist',
-
-  },
+  
   module: {
 
     rules: [
@@ -33,22 +28,25 @@ module.exports = {
       {
 
         test: /\.css$/i,
-
         use: ['style-loader', 'css-loader'],
 
       },
       {
 
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-
         type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext][query]'
+        }
 
       },
       {
 
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-
         type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext][query]'
+        }
 
       },
     ]
