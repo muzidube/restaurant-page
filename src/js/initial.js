@@ -7,6 +7,10 @@ const createHTML = (function() {
     const navBar = document.createElement('nav');
         const homeBtn = document.createElement('p');
         const menuBtn = document.createElement('p');
+        const contactBtn = document.createElement('p');
+        homeBtn.addEventListener('click', switchActiveHome);
+        menuBtn.addEventListener('click', switchActiveMenu);
+        contactBtn.addEventListener('click', switchActiveContact);
     const innerMenu = document.createElement('section');
     const sushiMenu = document.createElement('div'); //column is-6
     const sushiDishes = document.createElement('h1'); //title
@@ -85,6 +89,38 @@ const createHTML = (function() {
         const detailDesc = document.createElement('p');
         detailDesc.setAttribute('id', 'detailDesc');
         detailDesc.setAttribute('class', 'detailDesc');
+        
+        detailName.innerText = name;
+        detailDesc.innerText = description
+        detailInfo.appendChild(detailName);
+        detailInfo.appendChild(detailDesc);
+        
+        detailContainer.appendChild(detailInfo);
+
+        return detailContainer
+            
+    }
+
+    function emailCreator(name, type, description) {
+
+        
+        const detailContainer = document.createElement('article');
+        detailContainer.setAttribute('id', 'detailItem');
+        detailContainer.classList.add('detailItem', 'media', type);
+    
+        const detailInfo = document.createElement('div');
+        detailInfo.setAttribute('id', 'detailInfo');
+        detailInfo.classList.add('detailInfo');
+
+        const detailName = document.createElement('h3');
+        detailName.setAttribute('id', 'detailName');
+        detailName.setAttribute('class', 'detailName');
+
+        const detailDesc = document.createElement('a');
+        detailDesc.setAttribute('id', 'detailDesc');
+        detailDesc.classList.add('detailDesc', 'email');
+        detailDesc.setAttribute('href', 'https://github.com/muzidube');
+        detailDesc.setAttribute('target', '_blank');
 
         detailName.innerText = name;
         detailDesc.innerText = description
@@ -99,17 +135,15 @@ const createHTML = (function() {
 
     const address = detailCreator('Address', 'address', '278 Kings Road, London, SW3 5AW');
     const telephone = detailCreator('Telephone', 'telephone', '02011 1111 1111');
-    const email = detailCreator('Email', 'email', 'thisLinkWillTakeYouToMyGithub@havealook.com');
+    const email = emailCreator('Email', 'email', '\nhaveALook@myGithub.com');
     const hours = detailCreator('Opening Hours', 'hours', '4pm - 10pm Every Day');
 
-    const contactBtn = document.createElement('p');
     const header = document.createElement('header');
     const headerContainer = document.createElement('div');
     const headerContent = document.createElement('div');
     const restSymbol = document.createElement('img');
     const restName = document.createElement('p');
     const mainContainer = document.createElement('div');
-    const imageDiv = document.createElement('div');
     const restInfo = document.createElement('div');
     const infoText = document.createElement('p');
     const menuDiv = document.createElement('div');
@@ -122,6 +156,10 @@ const createHTML = (function() {
             const detailsDiv = document.createElement('div'); //column is-6
                 const detailsContainer = document.createElement('div');
                     const detailsTitle = document.createElement('h1'); //column is-6
+    const footer = document.createElement('footer');
+    const footerContainer = document.createElement('div');
+    const footerContent = document.createElement('div');
+    const footerText = document.createElement('p');
     
     allContent.setAttribute('id', 'content');
     allContent.setAttribute('class', 'content');
@@ -129,7 +167,7 @@ const createHTML = (function() {
     navBar.setAttribute('id', 'navBar');
     navBar.setAttribute('class', 'navBar');
         homeBtn.setAttribute('id', 'homeBtn');
-        homeBtn.classList.add('navBtns', 'homeBtn');
+        homeBtn.classList.add('navBtns', 'homeBtn', 'active');
 
         menuBtn.setAttribute('id', 'menuBtn');
         menuBtn.classList.add('navBtns', 'menuBtn');
@@ -153,16 +191,13 @@ const createHTML = (function() {
     mainContainer.setAttribute('id', 'mainContainer');
     mainContainer.setAttribute('class', 'mainContainer');
 
-    imageDiv.setAttribute('id', 'imageDiv');
-    imageDiv.setAttribute('class', 'imageDiv');
-
     restInfo.setAttribute('id', 'restInfo');
-    restInfo.setAttribute('class', 'restInfo');        
+    restInfo.classList.add('restInfo', 'active');        
         infoText.setAttribute('id', 'infoText');
         infoText.setAttribute('class', 'infoText');
 
     menuDiv.setAttribute('id', 'menuDiv');
-    menuDiv.setAttribute('class', 'menuDiv');
+    menuDiv.classList.add('menuDiv');
         innerMenu.setAttribute('id', 'menuColumns')
         innerMenu.setAttribute('class', 'menuColumns')
             sushiMenu.setAttribute('id', 'sushiColumn');
@@ -176,7 +211,7 @@ const createHTML = (function() {
             teppanyakiDishes.classList.add('teppanyakiDishes', 'titleDishes');
 
     contactDiv.setAttribute('id', 'contactDiv');
-    contactDiv.setAttribute('class', 'contactDiv');
+    contactDiv.classList.add('contactDiv');
         innerContact.setAttribute('id', 'contactColumns')
         innerContact.setAttribute('class', 'contactColumns')
             mapDiv.setAttribute('id', 'mapDiv');
@@ -194,6 +229,46 @@ const createHTML = (function() {
                 detailsContainer.classList.add('detailsContainer');
                     detailsTitle.setAttribute('id', 'detailsTitle');
                     detailsTitle.classList.add('detailsTitle', 'contactTitles');
+
+    footer.setAttribute('id', 'footer');
+    footer.setAttribute('class', 'footer');
+        footerContainer.setAttribute('id', 'footerContainer');
+        footerContainer.setAttribute('class', 'footerContainer');
+            footerContent.setAttribute('id', 'footerContent');
+            footerContent.setAttribute('class', 'footerContent');
+                footerText.setAttribute('id', 'footerText');
+                footerText.setAttribute('class', 'footerText');
+
+     function switchActiveHome() {
+        homeBtn.classList.add('active');
+        restInfo.classList.add('active');
+        menuDiv.classList.remove('active');
+        menuBtn.classList.remove('active');
+        contactDiv.classList.remove('active');
+        contactBtn.classList.remove('active');
+
+        
+    }
+
+    function switchActiveMenu() {
+        menuBtn.classList.add('active');
+        menuDiv.classList.add('active');
+        contactDiv.classList.remove('active');
+        contactBtn.classList.remove('active');
+        restInfo.classList.remove('active');
+        homeBtn.classList.remove('active');
+        
+    }
+
+    function switchActiveContact() {
+        contactBtn.classList.add('active');
+        contactDiv.classList.add('active');
+        menuDiv.classList.remove('active');
+        menuBtn.classList.remove('active');
+        restInfo.classList.remove('active');
+        homeBtn.classList.remove('active');
+
+    }
 
     return {
         body,
@@ -240,9 +315,12 @@ const createHTML = (function() {
         restSymbol,
         restName,
         mainContainer,
-        imageDiv,
         restInfo,
         infoText,
+        footer,
+        footerContainer,
+        footerContent,
+        footerText,
     }
 
 })();
@@ -293,9 +371,14 @@ const contentHTML =(function() {
         restSymbol,
         restName,
         mainContainer,
-        imageDiv,
         restInfo,
         infoText,
+
+        footer,
+        footerContainer,
+        footerContent,
+        footerText,
+
     } = createHTML;
 
     restName.innerText = 'Hagane Teppanyaki';
@@ -310,8 +393,9 @@ const contentHTML =(function() {
     mapTitle.innerText = 'Find Us';
     detailsTitle.innerText = 'Info';
     
-    infoText.innerText = 'Hagane Teppanyaki is a Japanese food haven, in a relaxing setting. Offering authentic Japanese dining and seamless hospitality, all presented in an atmosphere of unpretentious enjoyment.'
+    infoText.innerText = ('Hagane Teppanyaki is a Japanese food haven, in a relaxing setting. Offering authentic Japanese dining and seamless hospitality, all presented in an atmosphere of unpretentious enjoyment.\n\nPlease have a look at our menu, you can dine inside or click and collect.\n\nYour food journey awaits.');
 
+    footerText.innerText = ('A Muzi Dube Restaurant');
 })();
 
 const DOMappender =(function() {
@@ -360,14 +444,18 @@ const DOMappender =(function() {
         restSymbol,
         restName,
         mainContainer,
-        imageDiv,
         restInfo,
         infoText,
+
+        footer,
+        footerContainer,
+        footerContent,
+        footerText,
+
     } = createHTML;
 
     body.appendChild(allContent);
 
-    mainContainer.appendChild(imageDiv);
     mainContainer.appendChild(restInfo);
     restInfo.appendChild(infoText);
     mainContainer.appendChild(menuDiv);
@@ -391,8 +479,7 @@ const DOMappender =(function() {
     contactDiv.appendChild(innerContact);
         innerContact.appendChild(mapDiv);
             mapDiv.appendChild(mapTitle);
-            mapDiv.appendChild(mapContainer);
-                mapContainer.appendChild(mapImg);
+            mapDiv.appendChild(mapImg);
         innerContact.appendChild(detailsDiv);
             detailsDiv.appendChild(detailsContainer);
                 detailsContainer.appendChild(detailsTitle);
@@ -415,11 +502,16 @@ const DOMappender =(function() {
     navBar.appendChild(menuBtn);
     navBar.appendChild(contactBtn);
 
-
+    footer.appendChild(footerContainer);
+    footerContainer.appendChild(footerContent);
+    footerContent.appendChild(footerText);
+    
     
     allContent.appendChild(header);
     allContent.appendChild(navBar);
     allContent.appendChild(mainContainer);
+    allContent.appendChild(footer);
+
 
 
 

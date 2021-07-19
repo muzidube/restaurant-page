@@ -1,26 +1,24 @@
-@font-face {
-
-    font-family: 'Zen-Loop';
-  
-    src: url('../components/fonts/ZenLoop-Regular.ttf') format('truetype');
-   
-    font-weight: 600;
-  
-    font-style: normal;
-  
-  }
 
   @font-face {
-
     font-family: 'Branda';
-  
-    src: url('../components/fonts/Branda-yolq.ttf') format('truetype');
-  
-    font-weight: 1000;
-  
+    src: url("../components/fonts/branda-yolq-webfont.woff2") format("woff2"),
+         url("../components/fonts/branda-yolq-webfont.woff") format("woff");
+    font-weight: normal;
     font-style: normal;
-  
-  }
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Zen-Loop';
+    src: url("../components/fonts/zenloop-regular-webfont.woff2") format("woff2"),
+         url("../components/fonts/zenloop-regular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 html {
     box-sizing: border-box;
@@ -46,8 +44,13 @@ body {
     font-size: 100%;
     line-height: 1;
     background-image: url('../images/black-splatters.svg');
-    background-color: #cccccc;
-    background-size: 1000px;
+    background-color: #fbfbf3;;
+    background-size: 1100px;
+}
+
+.content {
+    position: relative;
+    min-height: 100vh;
 }
 .header {
     display: flex;
@@ -94,6 +97,10 @@ body {
     font-size: 4rem;
 }
 
+.mainContainer {
+    padding-bottom: 2.5rem;
+}
+
 .navBar {
     display: flex;
     margin: 2rem auto auto auto;
@@ -101,16 +108,46 @@ body {
     align-content: center;
 }
 
+@media screen and (max-width: 768px) {
+    .navBar {
+        width: 100%;
+    }
+ }
+
 .navBtns {
-    margin: 0 3rem;
-    background: #cccccc;
+    padding: 1rem 3rem;
+    background: #fbfbf3;;
     font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .navBtns {
+        padding: 1rem 1.7rem;
+    }
+ }
+
+.navBtns:hover {
+    background-color: black;
+    color: #fbfbf3;;
+    cursor: pointer;
+}
+
+.navBtns.active {
+    background-color: black;
+    color: #fbfbf3;;
+    cursor: pointer;
 }
 
 /* EVERYTHING BELOW IS FOR THE MENU*/
 
 .menuDiv {
+    display: none;
     margin-top: 3rem;
+    animation: fadeIn 1.5s;
+    -webkit-animation: fadeIn 1.5s;
+    -moz-animation: fadeIn 1.5s;
+    -o-animation: fadeIn 1.5s;
+    -ms-animation: fadeIn 1.5s;
 }
 
 .menuColumns {
@@ -129,7 +166,7 @@ body {
 .menuColumn {
     width: 50%;
     justify-self: center;
-    background: #cccccc;
+    background: #fbfbf3;;
     font-family: 'Zen-Loop';
 }
 
@@ -144,12 +181,18 @@ body {
     font-size: 2.5rem;
 }
 
+@media screen and (max-width: 768px) {
+    .teppanyakiDishes.titleDishes {
+        padding-top: 20px;
+    }
+ }
+
 .menuItem {
     display: flex;
     align-items: flex-start;
     text-align: left;
     padding: 20px 0;
-
+    border-bottom: 1px dotted black;
 }
 
 .dishInfo {
@@ -184,25 +227,11 @@ body {
     text-align: center;
     white-space: nowrap;
 }
+
 .dishCartBtn:hover {
     background-color: #d74a56c9;
     color: #fff;
 }
-.wrapper{
-    position:relative;
-     z-index:1;
- }
- 
- .wrapper::before{
-     content:'';
-     position:absolute;
-     background: linear-gradient(0deg, #00000038 30%, #ffffff44 100%);
-     width:100%;
-     height:100%;
-     z-index:-1;
-     left: 0;
-     top: 0;
- }
 
 .is-right {
     float: right;
@@ -213,8 +242,13 @@ body {
 /* EVERYTHING BELOW IS FOR THE HOME INFO */
 
 .restInfo {
+    display: none;
     margin: 3rem auto 0 auto;
-    display: grid
+    animation: fadeIn 1.5s;
+    -webkit-animation: fadeIn 1.5s;
+    -moz-animation: fadeIn 1.5s;
+    -o-animation: fadeIn 1.5s;
+    -ms-animation: fadeIn 1.5s;
 }
 
 @media screen and (max-width: 768px) {
@@ -226,7 +260,7 @@ body {
 .infoText {
     font-size: 1.5rem;
     width: 75%;
-    background: #cccccc;
+    background: #fbfbf3;;
     justify-self: center;
 }
 
@@ -241,18 +275,24 @@ body {
  /* EVERYTHING BELOW IS FOR THE CONTACT INFO */
 
  .contactDiv {
+    display: none;
     margin-top: 3rem;
+    animation: fadeIn 1.5s;
+    -webkit-animation: fadeIn 1.5s;
+    -moz-animation: fadeIn 1.5s;
+    -o-animation: fadeIn 1.5s;
+    -ms-animation: fadeIn 1.5s;
 }
 
 .contactColumns {
     margin: 0 auto;
-    display: grid;
-    grid-gap: 0;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
     .contactColumns {
+        display: grid;
         grid-template-columns: 1fr;
         max-width: 90vw;
     }
@@ -260,16 +300,13 @@ body {
 
 .contactColumn {
     justify-self: center;
-    background: #cccccc;
+    background: #fbfbf3;;
     font-family: 'Zen-Loop';
 }
 
 .mapDiv {
     max-width: 400px;
-}
-
-.detailsDiv {
-    max-width: 300px;
+    height: 440px;
 }
 
 @media screen and (max-width: 768px) {
@@ -298,15 +335,29 @@ body {
     }
  }
 
+ .detailsDiv {
+    background-color: black;
+    color: #fbfbf3;;
+    height: 440px;
+    max-width: 350px;
+ }
+
  .detailsContainer {
      height: 400px;
+     width: 350px;
+ }
+
+ @media screen and (max-width: 768px) {
+    .detailsContainer {
+        width: 100%;
+    }
  }
 
 .detailItem {
     display: flex;
     align-items: flex-start;
     text-align: left;
-    padding: 5px 0;
+    padding: 10px 10px;
 
 }
 
@@ -323,9 +374,83 @@ body {
 
 .detailDesc {
     padding: 2px 0;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1.4;
+    word-wrap: break-word;
+    width: 300px;
+}
+
+.email {
+    color: #fbfbf3;
+}
+
+.email.hover {
+    transform: scale(1.3);
+    cursor: pointer;
 }
 
 
-  /* EVERYTHING ABOVE IS FOR THE HOME INFO */
+.detailsTitle {
+    background-color: #fbfbf3;
+    color: black;
+}
+
+/* EVERYTHING BELOW IS FOR FOOTER*/
+
+.footer {
+    background-color: black;
+    color: #fbfbf3; 
+    text-align: center;
+    width: 100%;
+    height: 2.5rem;
+}
+
+.footerContent {
+    padding-top: 0.5rem;
+}
+
+.footerText {
+    font-size: 1.5rem;
+}
+
+/* EVERYTHING ABOVE IS FOR FOOTER */
+
+
+  /* EVERYTHING BELOW IS FOR SELECTION */
+
+.restInfo.active{
+      display: grid;
+  }
+
+.menuDiv.active{
+    display: inherit;
+}
+
+.contactDiv.active{
+    display: inherit;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
