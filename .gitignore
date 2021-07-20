@@ -1,4 +1,3 @@
 node_modules
-images/
 components/
-css/
+.DS_Store

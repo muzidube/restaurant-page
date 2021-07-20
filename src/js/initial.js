@@ -1,5 +1,5 @@
-import symbol from '../images/enso.png';
-import location from '../images/location2.png';
+import symbol from '../components/images/enso.png';
+import location from '../components/images/location2.png';
 
 const createHTML = (function() {
     const body = document.querySelector('body')
